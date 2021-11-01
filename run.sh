@@ -1,12 +1,12 @@
 #!/bin/sh
 
-if [ -f "${USER_NAME_SECRET}" ]; then
-    read USR < ${USER_NAME_SECRET}    
+if [ -f "${JENKINS_USER}" ]; then
+    read USR < ${JENKINS_USER}
     COMMAND_OPTIONS="${COMMAND_OPTIONS} -username $USR"
 fi
 
-if [ -f "${PASSWORD_SECRET}" ]; then
-    read PSS < ${PASSWORD_SECRET}
+if [ -f "${JENKINS_PASS}" ]; then
+    read PSS < ${JENKINS_PASS}
     export PSS
     COMMAND_OPTIONS="${COMMAND_OPTIONS} -passwordEnvVariable PSS"
 fi
